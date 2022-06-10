@@ -50,7 +50,7 @@ public class DepartmentFormController implements Initializable {
 		this.entity = entity;
 	}
 
-	public void setDeparmentService(DepartmentService service) {
+	public void setDepartmentService(DepartmentService service) {
 		this.service = service;
 	}
 	
