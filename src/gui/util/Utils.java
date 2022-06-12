@@ -23,8 +23,7 @@ public class Utils {
 	public static Integer tryParseToInt(String str) {
 		try {
 			return Integer.parseInt(str);
-		} 
-		catch (NumberFormatException e) {
+		} catch (NumberFormatException e) {
 			return null;
 		}
 	}
@@ -39,8 +38,7 @@ public class Utils {
 					super.updateItem(item, empty);
 					if (empty) {
 						setText(null);
-					} 
-					else {
+					} else {
 						setText(sdf.format(item));
 					}
 				}
@@ -58,8 +56,7 @@ public class Utils {
 					super.updateItem(item, empty);
 					if (empty) {
 						setText(null);
-					} 
-					else {
+					} else {
 						Locale.setDefault(Locale.US);
 						setText(String.format("%." + decimalPlaces + "f", item));
 					}
@@ -68,30 +65,28 @@ public class Utils {
 			return cell;
 		});
 	}
-	
+
 	public static void formatDatePicker(DatePicker datePicker, String format) {
-		datePicker.setConverter(new StringConverter<LocalDate>() {			
-			DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern(format);			
+		datePicker.setConverter(new StringConverter<LocalDate>() {
+			DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern(format);
 			{
 				datePicker.setPromptText(format.toLowerCase());
 			}
-			
+
 			@Override
 			public String toString(LocalDate date) {
 				if (date != null) {
 					return dateFormatter.format(date);
-				}
-				else {
+				} else {
 					return "";
 				}
 			}
-			
+
 			@Override
 			public LocalDate fromString(String string) {
 				if (string != null && !string.isEmpty()) {
 					return LocalDate.parse(string, dateFormatter);
-				}
-				else {
+				} else {
 					return null;
 				}
 			}
